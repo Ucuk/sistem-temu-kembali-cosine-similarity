@@ -382,12 +382,22 @@ def index():
         DF=DF
     )
 
+# ... kode route flask ...
+
 # ============================================================
-# 8. MAIN
+# INISIALISASI UNTUK PRODUCTION (GUNICORN/RAILWAY)
+# ============================================================
+print("\n🚀 MENYIAPKAN SISTEM (Loading Cache/Dataset)...")
+# Panggil fungsi ini di global scope agar dijalankan saat Gunicorn start
+success = load_or_build_cache()
+
+if not success:
+    print("⚠️ PERINGATAN: Dataset tidak ditemukan saat inisialisasi!")
+
+# ============================================================
+# 8. MAIN (Hanya untuk Localhost)
 # ============================================================
 
 if __name__ == "__main__":
-    print("\n🚀 MENYIAPKAN SISTEM ULTIMATE DEWA...")
-    load_or_build_cache()
     print("🌐 Aplikasi berjalan di http://127.0.0.1:5002")
     app.run(debug=True, port=5002, use_reloader=False)

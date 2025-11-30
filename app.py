@@ -212,7 +212,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Implementasi Sistem Temu Kembali Informasi pada Dokumen Abstrak Skripsi Menggunakan Metode TF-IDF dan Cosine Similarity</title>
+    <title>Implementasi Sistem Temu Kembali Informasi pada Dokumen Abstrak Skripsi Menggunakan Metode Cosine Similarity</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -230,7 +230,7 @@ HTML_TEMPLATE = """
 
     <h2 class="fw-bold text-center mb-4">
         Implementasi Sistem Temu Kembali Informasi pada Dokumen Abstrak Skripsi Menggunakan<br>
-        <span class="text-primary">Metode TF-IDF dan Cosine Similarity (Stopword + Stemming)</span>
+        <span class="text-primary">Metode Cosine Similarity (Stopword + Stemming)</span>
     </h2>
 
     <form method="POST">
@@ -335,9 +335,6 @@ HTML_TEMPLATE = """
 </html>
 """
 
-# ============================================================
-# 7. ROUTE FLASK
-# ============================================================
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -364,11 +361,6 @@ def index():
         DF=DF
     )
 
-# ... kode route flask ...
-
-# ============================================================
-# INISIALISASI UNTUK PRODUCTION (GUNICORN/RAILWAY)
-# ============================================================
 print("\n🚀 MENYIAPKAN SISTEM (Loading Cache/Dataset)...")
 # Panggil fungsi ini di global scope agar dijalankan saat Gunicorn start
 success = load_or_build_cache()
@@ -376,12 +368,10 @@ success = load_or_build_cache()
 if not success:
     print("⚠️ PERINGATAN: Dataset tidak ditemukan saat inisialisasi!")
 
-# ============================================================
-# 8. MAIN (Hanya untuk Localhost)
-# ============================================================
 
 if __name__ == "__main__":
     print("🌐 Aplikasi berjalan di http://127.0.0.1:5002")
     app.run(debug=True, port=5002, use_reloader=False)
+
 
 

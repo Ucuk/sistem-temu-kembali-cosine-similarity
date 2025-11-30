@@ -212,7 +212,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistem Temu Kembali Informasi Cosine Similarity</title>
+    <title>Implementasi Sistem Temu Kembali Informasi pada Dokumen Abstrak Skripsi Menggunakan Metode TF-IDF dan Cosine Similarity</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -229,8 +229,8 @@ HTML_TEMPLATE = """
 <div class="main-container">
 
     <h2 class="fw-bold text-center mb-4">
-        Sistem Temu Kembali Informasi<br>
-        <span class="text-primary">Cosine Similarity (Stopword + Stemming)</span>
+        Implementasi Sistem Temu Kembali Informasi pada Dokumen Abstrak Skripsi Menggunakan<br>
+        <span class="text-primary">Metode TF-IDF dan Cosine Similarity (Stopword + Stemming)</span>
     </h2>
 
     <form method="POST">
@@ -383,4 +383,5 @@ if not success:
 if __name__ == "__main__":
     print("🌐 Aplikasi berjalan di http://127.0.0.1:5002")
     app.run(debug=True, port=5002, use_reloader=False)
+
 
